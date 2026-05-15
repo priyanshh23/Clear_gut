@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white" style={{ borderBottom: '4px solid var(--color-black)', position: 'sticky', top: 0, zIndex: 50 }}>
-      <div className="container nav-inner" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1rem', gap: '1rem' }}>
+      <div className="container nav-inner" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', padding: '0.8rem 0.8rem', gap: '0.8rem' }}>
         <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <h1 className="text-subtitle" style={{ margin: 0, letterSpacing: '-0.05em' }}>CLEAR<span className="text-lime">GUT</span></h1>
         </Link>

@@ -49,16 +49,16 @@ const SignUp = () => {
     <div className="bg-white section-padding" style={{ minHeight: '100vh', position: 'relative' }}>
       
       <div className="container signup-container" style={{ maxWidth: '600px', position: 'relative', zIndex: 10 }}>
-        <h1 className="text-title signup-title" style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--color-black)', textShadow: '4px 4px 0 var(--color-lime)', lineHeight: 0.9 }}>
+        <h1 className="text-title signup-title" style={{ textAlign: 'center', marginBottom: '1.6rem', color: 'var(--color-black)', textShadow: '4px 4px 0 var(--color-lime)', lineHeight: 0.9 }}>
           JOIN <br/><span className="text-lime" style={{textShadow: '4px 4px 0 var(--color-black)'}}>THE CULT</span>
         </h1>
-        
-        <p className="text-body signup-copy" style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '4rem' }}>
+
+        <p className="text-body signup-copy" style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '3.2rem' }}>
           ENTER YOUR DETAILS TO COMPLETE YOUR PURCHASE. WE DON'T SPAM. WE JUST SELL FIBRE.
         </p>
 
-        <form onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '3rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <form onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label className="signup-label" htmlFor="name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>FULL NAME</label>
             <input
               type="text"
@@ -68,7 +68,7 @@ const SignUp = () => {
               pattern="[A-Za-z\s'-]+"
               title="Name can contain letters, spaces, apostrophes, and hyphens only."
               className="brutal-border signup-input"
-              style={{ padding: '1rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+              style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder="JOHN DOE"
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s'-]/g, '');
@@ -76,12 +76,12 @@ const SignUp = () => {
             />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label className="signup-label" htmlFor="email" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>EMAIL ID</label>
-            <input type="email" id="email" name="email" required className="brutal-border signup-input" style={{ padding: '1rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }} placeholder="JOHN@EXAMPLE.COM" />
+            <input type="email" id="email" name="email" required className="brutal-border signup-input" style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }} placeholder="JOHN@EXAMPLE.COM" />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label className="signup-label" htmlFor="whatsapp" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>WHATSAPP NO.</label>
             <input
               type="tel"
@@ -92,7 +92,7 @@ const SignUp = () => {
               pattern="\+?[0-9\s()-]{7,20}"
               title="Enter a valid phone number using digits, spaces, +, -, or brackets only."
               className="brutal-border signup-input"
-              style={{ padding: '1rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+              style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder="+91 234 567 8900"
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9\s()+-]/g, '');
@@ -113,12 +113,12 @@ const SignUp = () => {
             </p>
           )}
 
-          <button type="submit" disabled={status === 'sending'} className="btn btn-primary signup-submit" style={{ padding: '2rem', fontSize: '2rem', marginTop: '1rem', width: '100%', opacity: status === 'sending' ? 0.7 : 1 }}>
+          <button type="submit" disabled={status === 'sending'} className="btn btn-primary signup-submit" style={{ padding: '1.6rem', fontSize: '2rem', marginTop: '0.8rem', width: '100%', opacity: status === 'sending' ? 0.7 : 1 }}>
             {status === 'sending' ? 'SENDING...' : 'SUBMIT'}
           </button>
         </form>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.4rem' }}>
           <Skull size={48} className="text-black" />
         </div>
       </div>
