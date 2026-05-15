@@ -6,8 +6,8 @@ const escapeHtml = (value) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-const namePattern = /^[A-Za-z\s'-]+$/;
-const phonePattern = /^\+?[0-9\s()-]{7,20}$/;
+const namePattern = /^[A-Za-z\s]{1,10}$/;
+const phonePattern = /^[0-9]{10}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const createApiError = (statusCode, message) => {
@@ -19,7 +19,8 @@ const createApiError = (statusCode, message) => {
 export const sendOrderEmail = async ({ name = '', email = '', whatsapp = '' }, env = process.env) => {
   const apiKey = env.RESEND_API_KEY;
   const toEmail = env.RESEND_TO_EMAIL;
-  const fromEmail = env.RESEND_FROM_EMAIL || 'Clear Gut <onboarding@resend.dev>';
+  const fromEmail = env.RESEND_FROM_EMAIL || 'Clear Gut Orders <onboarding@resend.dev>';
+  const fallbackFromEmail = env.RESEND_FALLBACK_FROM_EMAIL || 'Clear Gut Orders <onboarding@resend.dev>';
 
   if (!apiKey || !toEmail) {
     throw createApiError(500, 'Email service is not configured yet.');
@@ -44,49 +45,69 @@ export const sendOrderEmail = async ({ name = '', email = '', whatsapp = '' }, e
     'User-Agent': 'clear-gut-order-form/1.0',
   };
 
-  const adminEmailResponse = await fetch('https://api.resend.com/emails', {
+  const buildAdminEmailPayload = (senderEmail) => ({
+    from: senderEmail,
+    to: [toEmail],
+    reply_to: trimmedEmail,
+    subject: `New Clear Gut order inquiry from ${trimmedName}`,
+    html: `
+      <h1>New order inquiry</h1>
+      <p>A customer submitted the Clear Gut order form.</p>
+      <table cellpadding="8" cellspacing="0" border="0">
+        <tr>
+          <td><strong>Name</strong></td>
+          <td>${escapeHtml(trimmedName)}</td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>${escapeHtml(trimmedEmail)}</td>
+        </tr>
+        <tr>
+          <td><strong>WhatsApp</strong></td>
+          <td>${escapeHtml(trimmedWhatsapp)}</td>
+        </tr>
+        <tr>
+          <td><strong>Submitted</strong></td>
+          <td>${escapeHtml(submittedAt)}</td>
+        </tr>
+      </table>
+    `,
+    text: [
+      'New order inquiry',
+      'A customer submitted the Clear Gut order form.',
+      `Name: ${trimmedName}`,
+      `Email: ${trimmedEmail}`,
+      `WhatsApp: ${trimmedWhatsapp}`,
+      `Submitted: ${submittedAt}`,
+    ].join('\n'),
+  });
+
+  let adminEmailResponse = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: resendHeaders,
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
-      reply_to: trimmedEmail,
-      subject: `New Clear Gut order inquiry from ${trimmedName}`,
-      html: `
-        <h1>New order inquiry</h1>
-        <p>A customer submitted the Clear Gut order form.</p>
-        <table cellpadding="8" cellspacing="0" border="0">
-          <tr>
-            <td><strong>Name</strong></td>
-            <td>${escapeHtml(trimmedName)}</td>
-          </tr>
-          <tr>
-            <td><strong>Email</strong></td>
-            <td>${escapeHtml(trimmedEmail)}</td>
-          </tr>
-          <tr>
-            <td><strong>WhatsApp</strong></td>
-            <td>${escapeHtml(trimmedWhatsapp)}</td>
-          </tr>
-          <tr>
-            <td><strong>Submitted</strong></td>
-            <td>${escapeHtml(submittedAt)}</td>
-          </tr>
-        </table>
-      `,
-      text: [
-        'New order inquiry',
-        'A customer submitted the Clear Gut order form.',
-        `Name: ${trimmedName}`,
-        `Email: ${trimmedEmail}`,
-        `WhatsApp: ${trimmedWhatsapp}`,
-        `Submitted: ${submittedAt}`,
-      ].join('\n'),
-    }),
+    body: JSON.stringify(buildAdminEmailPayload(fromEmail)),
   });
 
   if (!adminEmailResponse.ok) {
     const error = await adminEmailResponse.json().catch(() => ({}));
+    const canUseFallback = fromEmail !== fallbackFromEmail && /domain is not verified/i.test(error.message || '');
+
+    if (canUseFallback) {
+      adminEmailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: resendHeaders,
+        body: JSON.stringify(buildAdminEmailPayload(fallbackFromEmail)),
+      });
+
+      if (adminEmailResponse.ok) {
+        return {
+          message: 'Customer details sent.',
+          confirmationSent: false,
+          confirmationMessage: 'Customer confirmation will work after cleargut.in is verified in Resend.',
+        };
+      }
+    }
+
     throw createApiError(502, error.message || 'Unable to send customer details right now.');
   }
 

@@ -1,15 +1,31 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const closeMenu = () => setIsMenuOpen(false);
+
+  const navigateToPageTop = (path) => {
+    closeMenu();
+    navigate(path);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      });
+    });
+  };
 
   return (
     <nav className="bg-white" style={{ borderBottom: '4px solid var(--color-black)', position: 'sticky', top: 0, zIndex: 50 }}>
+<<<<<<< HEAD
       <div className="container nav-inner" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', padding: '0.8rem 0.8rem', gap: '0.8rem' }}>
         <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+=======
+      <div className="container nav-inner" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1rem', gap: '1rem' }}>
+        <Link to="/" onClick={(e) => { e.preventDefault(); navigateToPageTop('/'); }} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+>>>>>>> 6b4073e (done)
           <h1 className="text-subtitle" style={{ margin: 0, letterSpacing: '-0.05em' }}>CLEAR<span className="text-lime">GUT</span></h1>
         </Link>
 
@@ -35,9 +51,9 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6 6 18" />
             </svg>
           </button>
-          <Link to="/" onClick={closeMenu} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Home</Link>
-          <Link to="/about" onClick={closeMenu} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Manifesto</Link>
-          <Link to="/shop" onClick={closeMenu} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Products</Link>
+          <Link to="/" onClick={(e) => { e.preventDefault(); navigateToPageTop('/'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Home</Link>
+          <Link to="/about" onClick={(e) => { e.preventDefault(); navigateToPageTop('/about'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Manifesto</Link>
+          <Link to="/shop" onClick={(e) => { e.preventDefault(); navigateToPageTop('/shop'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Products</Link>
           <Link to="/shop" onClick={closeMenu} className="btn btn-primary nav-buy-button" style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', width: 'auto' }}>
             <ShoppingCart size={20} style={{ marginRight: '0.5rem' }} /> BUY
           </Link>
