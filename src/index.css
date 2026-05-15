@@ -58,7 +58,7 @@ button {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.6rem;
 }
 
 .text-center {
@@ -86,7 +86,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 3rem;
+  padding: 1.2rem 2.4rem;
   font-size: 1.5rem;
   text-transform: uppercase;
   transition: all 0.2s ease;
@@ -123,12 +123,12 @@ button {
   white-space: nowrap;
   background-color: var(--color-black);
   color: var(--color-white);
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   display: flex;
   border-top: 4px solid var(--color-black);
   border-bottom: 4px solid var(--color-black);
   transform: rotate(-2deg);
-  margin: 4rem -2rem;
+  margin: 3.2rem -1.6rem;
 }
 
 .marquee-content {
@@ -140,14 +140,14 @@ button {
 }
 
 .marquee-content span {
-  padding: 0 2rem;
+  padding: 0 1.6rem;
   display: flex;
   align-items: center;
 }
 
 .marquee-content span::after {
   content: "💀";
-  margin-left: 2rem;
+  margin-left: 1.6rem;
 }
 
 @keyframes marquee {
@@ -180,7 +180,7 @@ button {
 .text-lg { font-size: 2rem; line-height: 1.1; }
 .text-body { font-size: 1.25rem; line-height: 1.4; }
 
-.section-padding { padding: 5rem 0; }
+.section-padding { padding: 4rem 0; }
 .hero-bg { 
   background-image: url("/hero_bg.png");
   background-position: right center; 
@@ -204,8 +204,36 @@ button {
   transform: translateX(var(--shop-product-shift-x));
 }
 
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .text-hero { font-size: 5.5rem !important; line-height: 0.88 !important; }
+  .text-title { font-size: 3.5rem !important; }
+  .text-subtitle { font-size: 2.5rem !important; }
+
+  .container { padding: 0 2rem; }
+  .section-padding { padding: 3.5rem 0 !important; }
+
+  .hero-bg {
+    background-size: cover !important;
+    background-position: 120% center !important;
+  }
+  .hero-bg .container > div { max-width: 60% !important; }
+
+  .marquee-content { font-size: 2rem !important; }
+
+  .shop-product-image-wrap {
+    --shop-product-width: 100%;
+    --shop-product-shift-x: 0%;
+  }
+}
+
+/* Small desktop (1025px - 1280px) — narrow hero text block so cans show */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .hero-bg { background-position: 110% center; }
+}
+
 @media (max-width: 768px) {
-  .text-hero { font-size: 3.5rem !important; text-shadow: 2px 2px 0 var(--color-lime) !important; }
+  .text-hero { font-size: 3.5rem !important; text-shadow: 3px 3px 0 var(--color-lime) !important; letter-spacing: -0.04em !important; }
   .text-title { font-size: 2.5rem !important; text-shadow: 2px 2px 0 var(--color-lime) !important; }
   .text-subtitle { font-size: 2rem !important; }
   .text-lg { font-size: 1.5rem !important; }
@@ -227,49 +255,75 @@ button {
     gap: 3rem !important;
   }
   
-  .container { padding: 0 1rem; }
-  
+  .container { padding: 0 1.25rem; }
+
   .btn {
-    padding: 1rem !important;
+    padding: 1.15rem !important;
     font-size: 1.25rem !important;
     width: 100% !important;
     text-align: center !important;
+    border-width: 3px !important;
   }
 
-  .section-padding { padding: 3rem 0 !important; }
+  .section-padding { padding: 2.5rem 0 !important; }
 
   .marquee-content { font-size: 1.5rem !important; }
   .marquee-content span { padding: 0 1rem; }
   .marquee-content span::after { margin-left: 1rem; }
 
-  /* Hero background focuses on text readability on mobile */
-  .hero-bg { 
-    background-image: none !important;
-  }
-  
-  .mobile-hero-img {
-    display: block !important;
-    width: 100vw !important;
-    margin: 2rem calc(50% - 50vw) 0 !important;
-    height: 52vw;
-    min-height: 330px;
-    max-height: 440px;
-    overflow: hidden;
-    border-top: 4px solid var(--color-black);
+  /* Mobile hero: portrait product image as full-bleed bg */
+  .hero-bg {
+    background-image: url("/mobile_hero.png") !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    background-color: #F3EEEB !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    min-height: 92vh !important;
+    padding: 2.5rem 0 0 !important;
     border-bottom: 4px solid var(--color-black);
-    background-color: var(--color-white);
-    position: relative;
   }
 
-  .mobile-hero-image {
+  .hero-bg > div { width: 100%; }
+
+  .hero-bg .container > div {
+    max-width: 100% !important;
     width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
-    display: block;
-    object-fit: cover !important;
-    object-position: 99% center !important;
-    transform: none;
+    text-align: center !important;
   }
+
+  .hero-bg .text-hero {
+    color: var(--color-black) !important;
+    text-shadow: 3px 3px 0 var(--color-lime) !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-bg .text-hero .text-lime {
+    text-shadow: 3px 3px 0 var(--color-black) !important;
+  }
+
+  .hero-bg .flex-mobile-col {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .hero-bg .btn {
+    width: auto !important;
+    max-width: 260px;
+    margin: 0 auto;
+    background: transparent !important;
+    color: var(--color-black) !important;
+    border: 3px solid var(--color-lime) !important;
+    padding: 1rem 2.5rem !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.04em;
+  }
+
+  .mobile-hero-img { display: none !important; }
 
   .nav-inner {
     flex-wrap: nowrap !important;
@@ -438,4 +492,28 @@ button {
     padding: 1rem !important;
     font-size: 1.25rem !important;
   }
+}
+
+/* Small phones (max-width: 480px) — tighter type, tap targets preserved */
+@media (max-width: 480px) {
+  .text-hero { font-size: 2.85rem !important; }
+  .text-title { font-size: 2rem !important; }
+  .text-subtitle { font-size: 1.65rem !important; }
+
+  .container { padding: 0 1rem; }
+  .section-padding { padding: 2.25rem 0 !important; }
+
+  .hero-bg {
+    min-height: 82vh !important;
+    padding: 2.5rem 0 0 !important;
+  }
+  .hero-bg .text-hero { margin-bottom: 1.5rem !important; }
+  .hero-bg .btn {
+    padding: 0.85rem 2rem !important;
+    font-size: 1rem !important;
+  }
+
+  .nav-inner .text-subtitle { font-size: 1.65rem !important; }
+
+  .marquee-content { font-size: 1.25rem !important; }
 }
