@@ -72,7 +72,7 @@ const SignUp = () => {
               title="Name can contain letters and spaces only, up to 10 characters."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
-              placeholder="JOHN DOE"
+              placeholder=""
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s]/g, '').slice(0, 10);
               }}
@@ -90,7 +90,7 @@ const SignUp = () => {
               title="Enter a valid email address."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
-              placeholder="JOHN@EXAMPLE.COM"
+              placeholder=""
             />
           </div>
 
@@ -108,7 +108,7 @@ const SignUp = () => {
               title="Enter exactly 10 digits."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
-              placeholder="9876543210"
+              placeholder=""
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '').slice(0, 10);
               }}

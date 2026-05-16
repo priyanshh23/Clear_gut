@@ -306,6 +306,10 @@ button {
     margin-bottom: 1.5rem !important;
   }
 
+  .hero-bg .text-body {
+    margin-bottom: 1.4rem !important;
+  }
+
   .hero-bg .text-hero .text-lime {
     text-shadow: 3px 3px 0 var(--color-black) !important;
   }
@@ -319,7 +323,7 @@ button {
   .hero-bg .btn {
     width: auto !important;
     max-width: 260px;
-    margin: 0 auto;
+    margin: -0.4rem auto 0;
     background: transparent !important;
     color: var(--color-black) !important;
     border: 3px solid var(--color-lime) !important;
