@@ -59,15 +59,9 @@ const SignUp = () => {
           ENTER YOUR DETAILS TO COMPLETE YOUR PURCHASE. WE DON'T SPAM. WE JUST SELL FIBRE.
         </p>
 
-<<<<<<< HEAD
-        <form onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+        <form id="order-form" onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>FULL NAME</label>
-=======
-        <form id="order-form" onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '3rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label className="signup-label" htmlFor="name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>FULL NAME <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
->>>>>>> 6b4073e (done)
             <input
               type="text"
               id="name"
@@ -85,16 +79,7 @@ const SignUp = () => {
             />
           </div>
 
-<<<<<<< HEAD
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="email" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>EMAIL ID</label>
-            <input type="email" id="email" name="email" required className="brutal-border signup-input" style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }} placeholder="JOHN@EXAMPLE.COM" />
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="whatsapp" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>WHATSAPP NO.</label>
-=======
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label className="signup-label" htmlFor="email" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>EMAIL ID <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
             <input
               type="email"
@@ -104,14 +89,13 @@ const SignUp = () => {
               pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
               title="Enter a valid email address."
               className="brutal-border signup-input"
-              style={{ padding: '1rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+              style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder="JOHN@EXAMPLE.COM"
             />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label className="signup-label" htmlFor="whatsapp" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>WHATSAPP NO. <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
->>>>>>> 6b4073e (done)
             <input
               type="tel"
               id="whatsapp"
@@ -123,13 +107,8 @@ const SignUp = () => {
               maxLength="10"
               title="Enter exactly 10 digits."
               className="brutal-border signup-input"
-<<<<<<< HEAD
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
-              placeholder="+91 234 567 8900"
-=======
-              style={{ padding: '1rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder="9876543210"
->>>>>>> 6b4073e (done)
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '').slice(0, 10);
               }}

@@ -205,7 +205,6 @@ button {
   transform: translateX(var(--shop-product-shift-x));
 }
 
-<<<<<<< HEAD
 /* Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .text-hero { font-size: 5.5rem !important; line-height: 0.88 !important; }
@@ -232,10 +231,10 @@ button {
 /* Small desktop (1025px - 1280px) — narrow hero text block so cans show */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .hero-bg { background-position: 110% center; }
-=======
+}
+
 .signup-form {
   scroll-margin-top: 7rem;
->>>>>>> 6b4073e (done)
 }
 
 @media (max-width: 768px) {
