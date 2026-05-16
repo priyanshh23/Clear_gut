@@ -21,8 +21,11 @@ const Home = () => {
               <h1 className="text-hero" style={{ color: 'var(--color-black)', textShadow: '4px 4px 0 var(--color-lime)', marginBottom: '1.6rem', lineHeight: 0.9 }}>
                 MURDER <br />YOUR <span className="text-lime" style={{ textShadow: '4px 4px 0 var(--color-black)' }}>BLOAT.</span>
               </h1>
-            <div className="flex-mobile-col" style={{ display: 'flex', gap: '1.6rem' }}>
-              <Link to="/shop" className="btn" style={{ width: '100%', padding: '1.6rem 3.2rem', fontSize: '2rem', backgroundColor: 'transparent', color: 'var(--color-black)', border: '4px solid var(--color-lime)' }}>
+            <p className="text-body" style={{ marginBottom: '3rem', fontWeight: 'bold', textShadow: '0 2px 10px rgba(255,255,255,0.8)' }}>
+              YOUR GUT CALLED. IT'S PISSED OFF. ANNIHILATE BAD DIGESTION WITH PURE, UNADULTERATED PREBIOTIC FIBRE IN A CRISP, REFRESHING CARBONATED DRINK. NO WEIRD CHEMICALS. NO BS.
+            </p>
+            <div className="flex-mobile-col" style={{ display: 'flex', gap: '2rem' }}>
+              <Link to="/signup#order-form" className="btn btn-primary" style={{ padding: '2rem 4rem', fontSize: '2rem' }}>
                 BUY NOW
               </Link>
             </div>

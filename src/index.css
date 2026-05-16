@@ -21,6 +21,7 @@ html {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -230,6 +231,10 @@ button {
 /* Small desktop (1025px - 1280px) — narrow hero text block so cans show */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .hero-bg { background-position: 110% center; }
+}
+
+.signup-form {
+  scroll-margin-top: 7rem;
 }
 
 @media (max-width: 768px) {

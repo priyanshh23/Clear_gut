@@ -8,6 +8,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+
     setStatus('sending');
     setMessage('');
 
@@ -57,45 +59,58 @@ const SignUp = () => {
           ENTER YOUR DETAILS TO COMPLETE YOUR PURCHASE. WE DON'T SPAM. WE JUST SELL FIBRE.
         </p>
 
-        <form onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+        <form id="order-form" onSubmit={handleSubmit} className="brutal-border signup-form" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>FULL NAME</label>
+            <label className="signup-label" htmlFor="name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>FULL NAME <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
             <input
               type="text"
               id="name"
               name="name"
               required
-              pattern="[A-Za-z\s'-]+"
-              title="Name can contain letters, spaces, apostrophes, and hyphens only."
+              pattern="[A-Za-z\s]{1,10}"
+              maxLength="10"
+              title="Name can contain letters and spaces only, up to 10 characters."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder="JOHN DOE"
               onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s'-]/g, '');
+                e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s]/g, '').slice(0, 10);
               }}
             />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="email" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>EMAIL ID</label>
-            <input type="email" id="email" name="email" required className="brutal-border signup-input" style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }} placeholder="JOHN@EXAMPLE.COM" />
+            <label className="signup-label" htmlFor="email" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>EMAIL ID <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+              title="Enter a valid email address."
+              className="brutal-border signup-input"
+              style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+              placeholder="JOHN@EXAMPLE.COM"
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label className="signup-label" htmlFor="whatsapp" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>WHATSAPP NO.</label>
+            <label className="signup-label" htmlFor="whatsapp" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem' }}>WHATSAPP NO. <span aria-hidden="true" style={{ color: 'var(--color-blood)' }}>*</span></label>
             <input
               type="tel"
               id="whatsapp"
               name="whatsapp"
               required
-              inputMode="tel"
-              pattern="\+?[0-9\s()-]{7,20}"
-              title="Enter a valid phone number using digits, spaces, +, -, or brackets only."
+              inputMode="numeric"
+              pattern="[0-9]{10}"
+              minLength="10"
+              maxLength="10"
+              title="Enter exactly 10 digits."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
-              placeholder="+91 234 567 8900"
+              placeholder="9876543210"
               onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/[^0-9\s()+-]/g, '');
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '').slice(0, 10);
               }}
             />
           </div>

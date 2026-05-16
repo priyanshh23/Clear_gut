@@ -52,9 +52,8 @@ const Shop = () => {
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}><Droplet className="text-lime" size={28} style={{filter: 'drop-shadow(1px 1px 0 var(--color-black))'}} /> NO FAKE SUGAR GARBAGE</li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}><Skull className="text-lime" size={28} style={{filter: 'drop-shadow(1px 1px 0 var(--color-black))'}} /> 100% VEGAN FRIENDLY</li>
             </ul>
-
-            <div className="flex-mobile-col" style={{ display: 'flex', gap: '1.6rem', alignItems: 'center' }}>
-              <Link to="/signup" className="btn btn-primary" style={{ flex: 1, padding: '1.6rem', fontSize: '2rem', textAlign: 'center' }}>ADD TO CART</Link>
+            <div className="flex-mobile-col" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+              <Link to="/signup#order-form" className="btn btn-primary" style={{ flex: 1, padding: '2rem', fontSize: '2rem', textAlign: 'center' }}>ADD TO CART</Link>
             </div>
           </div>
         </div>
