@@ -40,7 +40,11 @@ const SignUp = () => {
 
       form.reset();
       setStatus('success');
-      setMessage('DETAILS SENT. WE WILL CONTACT YOU SOON.');
+      setMessage(
+        data.confirmationSent
+          ? 'DETAILS SENT. CONFIRMATION EMAIL SENT.'
+          : data.confirmationMessage || 'DETAILS SENT. WE WILL CONTACT YOU SOON.'
+      );
     } catch (error) {
       setStatus('error');
       setMessage(error.name === 'AbortError' ? 'EMAIL SERVICE IS NOT RESPONDING. TRY AGAIN.' : error.message);
