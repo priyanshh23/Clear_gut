@@ -182,11 +182,24 @@ button {
 .text-body { font-size: 1.25rem; line-height: 1.4; }
 
 .section-padding { padding: 4rem 0; }
+.nav-inner {
+  width: 100%;
+  max-width: none;
+}
+
 .hero-bg { 
   background-image: url("/hero_bg.png");
   background-position: right center; 
   background-size: cover;
 }
+
+.hero-bg .container {
+  width: 100%;
+  max-width: none;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
 .mobile-hero-img { display: none; }
 .nav-menu-button { display: none; }
 .nav-close-button { display: none; }
