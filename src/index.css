@@ -196,8 +196,8 @@ button {
 .hero-bg .container {
   width: 100%;
   max-width: none;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .mobile-hero-img { display: none; }
