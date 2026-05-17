@@ -275,7 +275,7 @@ button {
   .hero-bg {
     background-image: url("/mobile_hero.png") !important;
     background-size: cover !important;
-    background-position: center bottom !important;
+    background-position: center 115% !important;
     background-repeat: no-repeat !important;
     background-color: #F3EEEB !important;
     display: flex !important;
