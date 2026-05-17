@@ -71,14 +71,13 @@ const SignUp = () => {
               id="name"
               name="name"
               required
-              pattern="[A-Za-z\s]{1,10}"
-              maxLength="10"
-              title="Name can contain letters and spaces only, up to 10 characters."
+              pattern="[A-Za-z\s]+"
+              title="Name can contain letters and spaces only."
               className="brutal-border signup-input"
               style={{ padding: '0.8rem', fontSize: '1.5rem', fontFamily: 'var(--font-body)', outline: 'none' }}
               placeholder=""
               onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s]/g, '').slice(0, 10);
+                e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s]/g, '');
               }}
             />
           </div>

@@ -6,7 +6,7 @@ const escapeHtml = (value) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-const namePattern = /^[A-Za-z\s]{1,10}$/;
+const namePattern = /^[A-Za-z\s]+$/;
 const phonePattern = /^[0-9]{10}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

@@ -12,15 +12,13 @@ const Footer = () => {
           <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--color-black)' }}>BUY NOW</h3>
           <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontFamily: 'var(--font-heading)', fontSize: '1rem' }}>
             <li><Link to="/shop" className="hover-lime" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>VARIETY PACK</Link></li>
-            <li><Link to="/shop" className="hover-lime" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>KIWI LIME</Link></li>
-            <li><Link to="/shop" className="hover-lime" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>WATERMELON</Link></li>
           </ul>
         </div>
         <div>
           <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--color-black)' }}>PROPAGANDA</h3>
           <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontFamily: 'var(--font-heading)', fontSize: '1rem' }}>
             <li><Link to="/about" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>MANIFESTO</Link></li>
-            <li><Link to="/about" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>INGREDIENTS</Link></li>
+            <li><Link to="/about#raw-power" onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>INGREDIENTS</Link></li>
           </ul>
         </div>
       </div>

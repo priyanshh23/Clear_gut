@@ -23,7 +23,7 @@ const About = () => {
             <p className="text-body" style={{ textTransform: 'uppercase' }}>FEED IT CLEAR GUT OR SUFFER THE CONSEQUENCES OF A WEAK DIGESTIVE TRACT.</p>
           </div>
 
-          <h2 className="text-title" style={{ marginTop: '3.2rem', color: 'var(--color-black)' }}>RAW <span className="text-lime" style={{textShadow: '2px 2px 0 var(--color-black)'}}>POWER</span></h2>
+          <h2 id="raw-power" className="text-title" style={{ marginTop: '3.2rem', color: 'var(--color-black)', scrollMarginTop: '7rem' }}>RAW <span className="text-lime" style={{textShadow: '2px 2px 0 var(--color-black)'}}>POWER</span></h2>
           <p>
             WE USE CHICORY ROOT FIBRE AND ACACIA FIBRE. NO ARTIFICIAL CHEMICALS. NO LAB-GROWN BS. JUST RAW PLANT POWER DESIGNED TO ANNIHILATE SLUGGISH DIGESTION AND KEEP YOU RUNNING LIKE A WELL-OILED MACHINE.
           </p>

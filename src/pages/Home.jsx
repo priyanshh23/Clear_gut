@@ -89,7 +89,7 @@ const Home = () => {
               { name: 'MANGO', color: '#F5A623' },
               { name: 'BLACKCURRANT', color: '#9013FE' }
             ].map((flavor, i) => (
-              <Link to="/shop" key={i} className="brutal-border flavor-card" style={{ padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.1s', border: `4px solid ${flavor.color}`, color: flavor.color }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = flavor.color; e.currentTarget.style.color = 'var(--color-white)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-white)'; e.currentTarget.style.color = flavor.color; }}>
+              <Link to="/shop" key={i} className="brutal-border flavor-card" style={{ '--flavor-color': flavor.color, padding: '2.4rem', backgroundColor: 'var(--color-white)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.1s', border: `4px solid ${flavor.color}`, color: flavor.color }}>
                 <h3 className="text-subtitle flavor-title" style={{ margin: 0, textShadow: '2px 2px 0 var(--color-black)' }}>{flavor.name}</h3>
                 <Zap size={48} style={{ filter: 'drop-shadow(2px 2px 0 var(--color-black))' }} />
               </Link>

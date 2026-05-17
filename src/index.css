@@ -204,6 +204,14 @@ button {
 .nav-menu-button { display: none; }
 .nav-close-button { display: none; }
 
+.flavor-card:hover,
+.flavor-card:focus-visible,
+.flavor-card:active {
+  background-color: var(--flavor-color) !important;
+  border-color: var(--flavor-color) !important;
+  color: var(--color-white) !important;
+}
+
 .shop-product-image-wrap {
   --shop-product-width: 112%;
   --shop-product-shift-x: -8%;
@@ -459,6 +467,9 @@ button {
     padding: 1.5rem !important;
     gap: 1rem;
     overflow: hidden;
+    background-color: var(--flavor-color) !important;
+    border-color: var(--flavor-color) !important;
+    color: var(--color-white) !important;
   }
 
   .flavor-title {

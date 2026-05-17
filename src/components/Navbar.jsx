@@ -49,7 +49,7 @@ const Navbar = () => {
           <Link to="/" onClick={(e) => { e.preventDefault(); navigateToPageTop('/'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Home</Link>
           <Link to="/about" onClick={(e) => { e.preventDefault(); navigateToPageTop('/about'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Manifesto</Link>
           <Link to="/shop" onClick={(e) => { e.preventDefault(); navigateToPageTop('/shop'); }} style={{ transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-lime)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Products</Link>
-          <Link to="/shop" onClick={closeMenu} className="btn btn-primary nav-buy-button" style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', width: 'auto' }}>
+          <Link to="/signup#order-form" onClick={closeMenu} className="btn btn-primary nav-buy-button" style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', width: 'auto' }}>
             <ShoppingCart size={20} style={{ marginRight: '0.5rem' }} /> BUY
           </Link>
         </div>
